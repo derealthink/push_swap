@@ -22,7 +22,7 @@ int	*parse_wq(char *str)
 	char	**carr;
 	int		*iarr;
 	int		count;
-	int		i;// shorten function here make sep helper with variables.
+	int		i;
 	int		j;
 	
 	if (!(num_check_wq(str)))
