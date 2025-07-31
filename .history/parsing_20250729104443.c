@@ -12,11 +12,6 @@ int	num_check_wq(char *str)
 			write (2, "Input Error\n", 13);
 			return (0);
 		}
-		if ((str[i] == '+' || str[i] == '-') && (str[i + 1] == '+' || str[i + 1] == '-'))
-		{
-			write (2, "Input Error\n", 13);
-			return (0);
-		}
 		i++;
 	}
 	return (1);	
@@ -98,31 +93,12 @@ int	has_doubles(int	*arr, int count)
 	}
 	return (1);
 }
-int	*parse_ma(char **argv, int count)
+void	free_split(char	**split)
 {
-	int	*iarr;
 	int	i;
 
 	i = 0;
-	while (i < count)
-	{
-		if (!num_check_wq(argv[i]))
-			return (NULL);
-		i++;
-	}
-	iarr = malloc(sizeof(int) * count);
-	if (!iarr)
-		return (NULL);
-	i = 0;
-	while (i < count)
-	{
-		iarr[i] = (int)ft_atol_strict(argv[i]);
-		i++;
-	}
-	if (!has_doubles(iarr, count))
-	{
-		free(iarr);
-		return (NULL);
-	}	
-	return (iarr);	
+	while (split[i])
+		free(split[i++]);
+	free(split);
 }

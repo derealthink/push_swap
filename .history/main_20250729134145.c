@@ -39,13 +39,13 @@
 	else 
 	{
 		num = argc - 1;
-		iarr = parse_ma(argv + 1, num);
+		iarr = parse_ma(argv + 1, argc);
 		if (!iarr)
 		{
 			write(2, "Error\n", 6);
 			return (1);
 		}
-		while (i < num)
+		while (i < argc)
 		{
 			t_node *new_node = create_node(iarr[i]); 
 			if (!new_node)
@@ -59,6 +59,7 @@
 		}
 		free(iarr);
 	}
-	print_stack(&stack_a, 'a');
+	print_stack(stack_a, "a");
 	return (0);
  }
+

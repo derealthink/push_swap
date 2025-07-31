@@ -9,12 +9,7 @@ int	num_check_wq(char *str)
 	{
 		if (!((str[i] >= '0' && str[i] <= '9') || str[i] == 32 || str[i] == '+' || str[i] == '-'))
 		{	
-			write (2, "Input Error\n", 13);
-			return (0);
-		}
-		if ((str[i] == '+' || str[i] == '-') && (str[i + 1] == '+' || str[i + 1] == '-'))
-		{
-			write (2, "Input Error\n", 13);
+			write (1, "input error", 10);
 			return (0);
 		}
 		i++;
@@ -55,12 +50,15 @@ int	*parse_wq(char *str)
 	char	**carr;
 	int		*iarr;
 	int		count;
-	int		i;
+	int		i;// shorten function here make sep helper with variables.
+	int		j;
 	
 	if (!num_check_wq(str))
 		return (NULL);
-	count = arg_count(str);
 	carr = ft_split(str);
+	count = 0;
+	while (carr[count])
+		count++;
 	iarr = malloc(sizeof(int) * count);
 	if (!iarr)
 		return (NULL);
@@ -98,31 +96,12 @@ int	has_doubles(int	*arr, int count)
 	}
 	return (1);
 }
-int	*parse_ma(char **argv, int count)
+void	free_split(char	**split)
 {
-	int	*iarr;
 	int	i;
 
 	i = 0;
-	while (i < count)
-	{
-		if (!num_check_wq(argv[i]))
-			return (NULL);
-		i++;
-	}
-	iarr = malloc(sizeof(int) * count);
-	if (!iarr)
-		return (NULL);
-	i = 0;
-	while (i < count)
-	{
-		iarr[i] = (int)ft_atol_strict(argv[i]);
-		i++;
-	}
-	if (!has_doubles(iarr, count))
-	{
-		free(iarr);
-		return (NULL);
-	}	
-	return (iarr);	
+	while (split[i])
+		free(split[i++]);
+	free(split);
 }

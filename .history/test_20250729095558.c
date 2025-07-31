@@ -11,5 +11,8 @@ int main(void)
 	printf("%d\n", num_check_wq(str1));
 	printf("%d\n", num_check_wq(str2));
 
+	printf("%d\n", arg_count(str1));
+	printf("%d\n", arg_count(str2));
+
 	return (0);
 }

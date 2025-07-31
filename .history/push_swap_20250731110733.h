@@ -6,7 +6,6 @@
 #include <stdint.h>
 #include <limits.h>
 #include <unistd.h>
-#include <stdbool.h>
 
 typedef struct s_node
 {

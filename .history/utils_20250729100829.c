@@ -22,8 +22,8 @@ long 	ft_atol_strict(char *str)
 	{
 		if (str[i] < '0' || str[i] > '9')
 			exit (1);
-		num = num * 10 + (str[i++] - '0');
-		if ((sign == 1 && num > INT_MAX) || (sign == -1 && num > (long)INT_MAX + 1))
+		num = num * 10 + (str[i++] + '0');
+		if ((sign == 1 && num > INT_MAX) || (sign == -1 && num < INT_MIN))
 			exit (1);
 	}
 	return (num * sign);
