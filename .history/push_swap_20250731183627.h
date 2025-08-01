@@ -15,7 +15,6 @@ typedef struct s_node
 	int				pos;
 	int				cost_a;
 	int				cost_b;
-	int				cost;
 	bool			abm;
 	struct s_node	*target;
 	struct s_node	*prev;

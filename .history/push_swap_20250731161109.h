@@ -13,8 +13,6 @@ typedef struct s_node
 	int				value;
 	int				index;
 	int				pos;
-	int				cost_a;
-	int				cost_b;
 	int				cost;
 	bool			abm;
 	struct s_node	*target;
@@ -60,7 +58,6 @@ void	assign_pos(t_stack *stack);
 void	assign_index(t_stack *stack);
 int		is_sorted(t_stack *stack);
 void	sort_three(t_stack *stack);
-void	set_target(t_stack *a, t_stack *b);
 
 
 

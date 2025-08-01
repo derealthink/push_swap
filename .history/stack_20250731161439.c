@@ -13,7 +13,7 @@ void	assign_pos(t_stack *stack)
 	current = stack->top;
 	while(current)
 	{
-		current->pos = i;
+		i = current->pos;
 		if (i <= median)
 			current->abm = true;
 		else
