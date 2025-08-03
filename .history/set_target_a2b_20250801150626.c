@@ -34,7 +34,7 @@ static t_node	*find_target_node(t_node *a_node, t_stack *b)
 	return (best_target);
 }
 
-void	set_targe_ab(t_stack *a, t_stack *b)
+void	set_target_ab(t_stack *a, t_stack *b)
 {
 	t_node	*current_a = a->top;
 
